@@ -32,8 +32,12 @@ _load()
 
 commands(id, cmd, func, desc)
 {
-    codam\_mm_commands::commands(id, cmd, func, desc);
-    level.help[id]["cmd"] = cmd;
+    if(!isDefined(level.commands[cmd]))
+        level.help[level.help.size]["cmd"] = cmd;
+
+    level.commands[cmd]["func"] = func;
+    level.commands[cmd]["desc"] = desc;
+    level.commands[cmd]["id"]   = id;
 }
 
 message_player(msg)
