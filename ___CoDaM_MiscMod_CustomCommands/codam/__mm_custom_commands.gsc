@@ -150,7 +150,7 @@ cmd_maplist(args)
     }
 
     mapRotation = codam\_mm_mmm::strTok(mapRotation, " ");
-    if(mapRotation[0] != "gametype" && mapRotation.size % 2 == 0) {
+    if(mapRotation[0] != "gametype" || mapRotation.size % 2 != 0) {
         message_player("^1ERROR: ^7Error in mapRotation.");
         return;
     }
